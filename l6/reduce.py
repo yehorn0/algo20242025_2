@@ -5,15 +5,20 @@ T = TypeVar('T')
 
 
 def reduce_function(func: Callable[[T, T], T], arr: list[T] = None, initial: T | None = None) -> list[T]:
-    if initial:
-        result = initial
+    iterator = iter(arr)
+
+    if initial is None:
+        try:
+            accumulator = next(iterator)
+        except StopIteration:
+            raise TypeError('reduce_function() of empty iterable with no initial value')
     else:
-        result = next(iter(arr))
+        accumulator = initial
 
-    for elem in arr:
-        result = func(result, elem)
+    for item in iterator:
+        accumulator = func(accumulator, item)
 
-    return result
+    return accumulator
 
 
 def double_sum(x: T, y: T) -> T:
