@@ -1,5 +1,4 @@
 from typing import NoReturn, Iterator
-from l9.entity import Entity
 from l9.bst_node import BSTNode, insert, update, find, inorder_traversal, tree_size, display
 from l9.storage_proto import StorageProto, T
 
@@ -60,6 +59,7 @@ class StorageBST(StorageProto[T]):
 
 
 if __name__ == '__main__':
+    from l9.entity import Entity
     entity_0 = Entity("e0", 10, 100.)
     entity_1 = Entity("e1", 11, 400.)
     entity_2 = Entity("e2", 12, 500.)

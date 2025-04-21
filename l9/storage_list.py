@@ -3,7 +3,6 @@ from l9.entity import Entity
 from l9.storage_proto import StorageProto, T
 
 
-
 class StorageList(StorageProto[T]):
     def __init__(self) -> None:
         self.__elements: list[T] = []
